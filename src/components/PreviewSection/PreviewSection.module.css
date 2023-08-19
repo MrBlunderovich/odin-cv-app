@@ -1,0 +1,10 @@
+.heading {
+  background-color: var(--gray);
+  color: var(--navy);
+  text-align: center;
+  font-weight: 500;
+}
+
+.grid-container {
+  display: grid;
+}

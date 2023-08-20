@@ -21,38 +21,48 @@ export default function PersonalSection({
   }
 
   return (
-    <EditorSection title="Personal Details">
-      <FormInput title="Full Name">
-        <input
-          name="fullName"
-          value={personalInfo.fullName}
-          onChange={handleChange}
-        />
-      </FormInput>
+    <div className="editor-section">
+      <h3 className="editor-section__title">Personal Details</h3>
+      <form className="editor-section__form">
+        <FormInput title="Full Name">
+          <input
+            name="fullName"
+            value={personalInfo.fullName}
+            onChange={handleChange}
+          />
+        </FormInput>
 
-      <FormInput title="Email">
-        <input
-          name="email"
-          type="email"
-          value={personalInfo.email}
-          onChange={handleChange}
-        />
-      </FormInput>
+        <FormInput title="Email">
+          <input
+            name="email"
+            type="email"
+            value={personalInfo.email}
+            onChange={handleChange}
+          />
+        </FormInput>
 
-      <FormInput title="Phone number">
-        <input
-          name="phone"
-          value={personalInfo.phone}
-          onChange={handleChange}
-        />
-      </FormInput>
-      <FormInput title="Location">
-        <input
-          name="location"
-          value={personalInfo.location}
-          onChange={handleChange}
-        />
-      </FormInput>
-    </EditorSection>
+        <FormInput title="Phone number">
+          <input
+            name="phone"
+            value={personalInfo.phone}
+            onChange={handleChange}
+          />
+        </FormInput>
+        <FormInput title="Location">
+          <input
+            name="location"
+            value={personalInfo.location}
+            onChange={handleChange}
+          />
+        </FormInput>
+      </form>
+    </div>
   );
+}
+
+{
+  /* <div className={styles["editor-section"]}>
+      <h3 className={styles["editor-section__title"]}>{title}</h3>
+      <form className={styles["editor-section__form"]}>{children}</form>
+    </div> */
 }

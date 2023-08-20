@@ -44,3 +44,19 @@ body {
     flex-grow: 1;
   }
 }
+
+.editor-section {
+  background-color: #fff;
+  border-radius: 7px;
+  box-shadow: 0 0 10px 0 gray;
+  padding: 1rem;
+}
+
+.editor-section__title {
+  margin-bottom: 1rem;
+}
+
+.editor-section__form {
+  display: flex;
+  flex-direction: column;
+}

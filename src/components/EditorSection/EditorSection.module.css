@@ -1,4 +1,4 @@
-.editor-section {
+/* .editor-section {
   background-color: #fff;
   border-radius: 7px;
   box-shadow: 0 0 10px 0 gray;
@@ -12,4 +12,25 @@
 .editor-section__form {
   display: flex;
   flex-direction: column;
+} */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+
+  & button {
+    margin-left: auto;
+    cursor: pointer;
+    border-radius: 3px;
+
+    &:focus-visible {
+      outline: 1px solid var(--navy);
+    }
+  }
+}
+
+.expand-section {
+  background-color: transparent;
+  border: none;
 }

@@ -6,6 +6,7 @@ import { ExampleData } from "./types/declarations";
 //import EditorSection from "./components/EditorSection/EditorSection";
 //import FormInput from "./components/FormInput/FormInput";
 import PersonalSection from "./components/PersonalSection/PersonalSection";
+import EditorSection from "./components/EditorSection/EditorSection";
 
 const exampleData: ExampleData = {
   personal: {
@@ -33,6 +34,7 @@ function App() {
             personalInfo={personalInfo}
             setPersonalInfo={setPersonalInfo}
           />
+          <EditorSection title="Education">{0}</EditorSection>
         </Editor>
         <Preview personalInfo={personalInfo} />
       </div>

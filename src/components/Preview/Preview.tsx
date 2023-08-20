@@ -1,16 +1,22 @@
 import {} from "react";
 import styles from "./Preview.module.css";
 import PreviewSection from "../PreviewSection/PreviewSection";
+import { PersonalInfo } from "../../types/declarations";
 
-export default function Preview() {
+type Props = {
+  personalInfo: PersonalInfo;
+};
+export default function Preview({ personalInfo }: Props) {
+  const { fullName, email, phone, location } = personalInfo;
+
   return (
     <main className={styles.output}>
       <address className={styles.heading}>
-        <h2 className={styles.name}>Walter White</h2>
+        <h2 className={styles.name}>{fullName}</h2>
         <ul className={styles.contacts}>
-          <li>walter.white@pollos.com</li>
-          <li>+123 456 7890</li>
-          <li>Albuquerque, US</li>
+          <li>{email}</li>
+          <li>{phone}</li>
+          <li>{location}</li>
         </ul>
       </address>
       <div className={styles.container}>

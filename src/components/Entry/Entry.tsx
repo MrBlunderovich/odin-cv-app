@@ -1,12 +1,10 @@
 import {} from "react";
-import { EducationEntry, ExperienceEntry } from "../../types/declarations";
+import { ExperienceEntry } from "../../types/declarations";
 import styles from "./Entry.module.css";
 
 type Props = {
-  data: EducationEntry | ExperienceEntry;
-  setData:
-    | React.Dispatch<React.SetStateAction<EducationEntry[]>>
-    | React.Dispatch<React.SetStateAction<ExperienceEntry[]>>;
+  data: ExperienceEntry;
+  setData: React.Dispatch<React.SetStateAction<ExperienceEntry[]>>;
   title: string;
   children: React.ReactNode;
 };
@@ -20,7 +18,7 @@ export default function Entry({ data, setData, title, children }: Props) {
   ) {
     event.stopPropagation();
     setData((prev: any) => {
-      return prev.map((entry: EducationEntry | ExperienceEntry) =>
+      return prev.map((entry: ExperienceEntry) =>
         entry.id === id ? { ...entry, visible: !data.visible } : entry
       );
     });
@@ -28,7 +26,7 @@ export default function Entry({ data, setData, title, children }: Props) {
 
   function handleExpandEntry() {
     setData((prev: any) => {
-      return prev.map((entry: EducationEntry | ExperienceEntry) =>
+      return prev.map((entry: ExperienceEntry) =>
         entry.id === id
           ? { ...entry, expanded: true }
           : { ...entry, expanded: false }

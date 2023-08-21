@@ -6,5 +6,36 @@
 }
 
 .grid-container {
+  margin-block: 1rem;
+  font-size: 0.8rem;
   display: grid;
+  grid-template-columns: 20ch 1fr;
+  grid-template-areas:
+    "period organization"
+    "location position"
+    "empty description";
+
+  & p {
+    font-weight: 300;
+  }
+}
+
+.period {
+  grid-area: period;
+}
+
+.organization {
+  grid-area: organization;
+}
+
+.location {
+  grid-area: location;
+}
+
+.position {
+  grid-area: position;
+}
+
+.description {
+  grid-area: description;
 }

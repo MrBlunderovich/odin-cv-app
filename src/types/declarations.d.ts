@@ -4,7 +4,7 @@ export type PersonalInfo = {
   phone: string;
   location: string;
 };
-
+/* 
 export type EducationEntry = {
   id: string;
   school: string;
@@ -14,14 +14,15 @@ export type EducationEntry = {
   location: string;
   visible: boolean;
   expanded: boolean;
-};
+}; */
 
 export type ExperienceEntry = {
   id: string;
-  company: string;
+  organization: string;
   position: string;
   start: string;
   end: string;
+  location: string;
   description: string;
   visible: boolean;
   expanded: boolean;
@@ -29,6 +30,6 @@ export type ExperienceEntry = {
 
 export type ExampleData = {
   personal: PersonalInfo;
-  education: EducationEntry[];
+  education: ExperienceEntry[];
   experience: ExperienceEntry[];
 };

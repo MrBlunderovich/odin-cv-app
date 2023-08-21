@@ -1,5 +1,5 @@
 import {} from "react";
-import EditorSection from "../EditorSection/EditorSection";
+//import EditorSection from "../EditorSection/EditorSection";
 import FormInput from "../FormInput/FormInput";
 import { PersonalInfo } from "../../types/declarations";
 

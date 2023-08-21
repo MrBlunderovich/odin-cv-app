@@ -1,12 +1,15 @@
-import {} from "react";
+import { ReactNode } from "react";
 import styles from "./Preview.module.css";
-import PreviewSection from "../PreviewSection/PreviewSection";
+//import PreviewSection from "../PreviewSection/PreviewSection";
 import { PersonalInfo } from "../../types/declarations";
 
 type Props = {
   personalInfo: PersonalInfo;
+  /* educationInfo: EducationEntry[];
+  experienceInfo:ExperienceEntry[]; */
+  children: ReactNode;
 };
-export default function Preview({ personalInfo }: Props) {
+export default function Preview({ personalInfo, children }: Props) {
   const { fullName, email, phone, location } = personalInfo;
 
   return (
@@ -20,9 +23,10 @@ export default function Preview({ personalInfo }: Props) {
         </ul>
       </address>
       <div className={styles.container}>
+        {/* <PreviewSection />
         <PreviewSection />
-        <PreviewSection />
-        <PreviewSection />
+        <PreviewSection /> */}
+        {children}
       </div>
     </main>
   );

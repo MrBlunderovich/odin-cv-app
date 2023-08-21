@@ -9,7 +9,7 @@
     border: none;
     border-radius: var(--radius);
     padding: 0.3rem 0.5rem;
-    font-weight: 200;
+    font-weight: 300;
     margin-bottom: 0.7rem;
 
     &:focus,

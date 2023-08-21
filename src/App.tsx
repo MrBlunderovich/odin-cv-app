@@ -9,6 +9,7 @@ import PersonalSection from "./components/PersonalSection/PersonalSection";
 import EditorSection from "./components/EditorSection/EditorSection";
 import Entry from "./components/Entry/Entry";
 import { nanoid } from "nanoid";
+import PreviewSection from "./components/PreviewSection/PreviewSection";
 
 const exampleData: ExampleData = {
   personal: {
@@ -20,31 +21,34 @@ const exampleData: ExampleData = {
   education: [
     {
       id: "AScBYUkHnDlZH6fZgonLv",
-      school: "Rutgers University",
-      degree: "Bachelor of arts",
+      organization: "Rutgers University",
+      position: "Bachelor of arts",
       start: "1928",
       end: "1932",
       location: "New Jersey",
+      description: "",
       visible: true,
       expanded: false,
     },
     {
       id: "Q5mu3om6S7KtmJcGXcGjy",
-      school: "Chicago University",
-      degree: "Master of Arts",
+      organization: "Chicago University",
+      position: "Master of Arts",
       start: "1932",
       end: "1933",
       location: "New Jersey",
+      description: "",
       visible: true,
       expanded: false,
     },
     {
       id: "VO38d92w5l8oSq8JGeGaL",
-      school: "Columbia University",
-      degree: "PhD",
+      organization: "Columbia University",
+      position: "PhD",
       start: "1933",
       end: "1935",
       location: "New York City",
+      description: "",
       visible: true,
       expanded: false,
     },
@@ -52,10 +56,11 @@ const exampleData: ExampleData = {
   experience: [
     {
       id: "yRsIQj2bkaLKYEd9TaaF7",
-      company: "University of Chicago",
+      organization: "University of Chicago",
       position: "Professor",
       start: "1946",
       end: "1976",
+      location: "Chicago, US",
       description:
         "In 1946, Friedman accepted an offer to teach economic theory at the University of Chicago (a position opened by departure of his former professor Jacob Viner to Princeton University). Friedman would work for the University of Chicago for the next 30 years.[39] There he contributed to the establishment of an intellectual community that produced a number of Nobel Memorial Prize winners, known collectively as the Chicago school of economics.",
       visible: true,
@@ -83,7 +88,7 @@ function App() {
                 key={entry.id}
                 data={entry}
                 setData={setEducationInfo}
-                title={entry.school}
+                title={entry.organization}
               >
                 <div>expanded</div>
               </Entry>
@@ -94,7 +99,13 @@ function App() {
             {0}
           </EditorSection>
         </Editor>
-        <Preview personalInfo={personalInfo} />
+        <Preview personalInfo={personalInfo}>
+          <PreviewSection title="Education" data={educationInfo} />
+          <PreviewSection
+            title="Professional Experience"
+            data={experienceInfo}
+          />
+        </Preview>
       </div>
     </>
   );

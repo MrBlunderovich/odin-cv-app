@@ -6,6 +6,9 @@
   --light: #f1f1f1;
   --gray: #eef1f2;
   --light-gray: #f3f4f6;
+
+  --gap: 2rem;
+  --radius: 7px;
   /*   --green-gradient-darker: #0b4940;
   --green-gradient-lighter: #0b6e30;
   --light-yellow: #fcfa00;
@@ -38,7 +41,7 @@ body {
   min-height: 100dvh; */
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: var(--gap);
 
   & > * {
     flex-grow: 1;
@@ -56,7 +59,22 @@ body {
   margin-bottom: 1rem;
 }
 
-.editor-section__form {
+.editor-section__list {
   display: flex;
   flex-direction: column;
+  list-style: none;
+}
+
+.icon-button {
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
+  color: inherit;
+  margin-left: auto;
+
+  &:focus-visible {
+    outline: 1px solid var(--navy);
+  }
 }

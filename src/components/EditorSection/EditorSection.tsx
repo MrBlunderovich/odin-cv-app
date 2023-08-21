@@ -7,9 +7,10 @@ type Props = {
   //setState: React.Dispatch<React.SetStateAction<PersonalInfo>>;
   //handleChange: (event: React.FormEvent<HTMLFormElement>) => void;
   children: React.ReactNode;
+  icon: "school" | "work_outline";
 };
 
-export default function EditorSection({ title, children }: Props) {
+export default function EditorSection({ title, children, icon }: Props) {
   const [expanded, setExpanded] = useState(false);
   /* function handleChange(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -22,16 +23,16 @@ export default function EditorSection({ title, children }: Props) {
   return (
     <div className="editor-section">
       <h3 className={`${styles["section-title"]} editor-section__title`}>
-        <span className="material-icons-outlined">school</span>
+        <span className="material-icons-outlined">{icon}</span>
         {title}{" "}
         <button
-          className={`${styles["expand-section"]} material-icons-outlined`}
+          className={`${styles["expand-section"]} material-icons-outlined icon-button`}
           onClick={() => setExpanded(!expanded)}
         >
           {expanded ? "expand_less" : "expand_more"}
         </button>
       </h3>
-      {expanded && <form className="editor-section__form">{children}</form>}
+      {expanded && <ul className="editor-section__list">{children}</ul>}
     </div>
   );
 }
@@ -46,3 +47,5 @@ export default function EditorSection({ title, children }: Props) {
 //<span class="material-icons-outlined">school</span>
 //<span class="material-icons-outlined">work_outline</span>
 //<span class="material-icons-outlined">delete_forever</span>
+//<span class="material-icons-outlined">visibility</span>
+//<span class="material-icons-outlined">visibility_off</span>

@@ -14,7 +14,7 @@ import PreviewSection from "./components/PreviewSection/PreviewSection";
 const exampleData: ExampleData = {
   personal: {
     fullName: "Milton Friedman",
-    email: "milton.friedman@mail.email",
+    email: "milton.friedman@e.mail",
     phone: "+123 456 7890",
     location: "San Francisco, US",
   },
@@ -47,7 +47,7 @@ const exampleData: ExampleData = {
       position: "PhD",
       start: "1933",
       end: "1935",
-      location: "New York City",
+      location: "New York",
       description: "",
       visible: true,
       expanded: false,
@@ -60,7 +60,7 @@ const exampleData: ExampleData = {
       position: "Professor",
       start: "1946",
       end: "1976",
-      location: "Chicago, US",
+      location: "Chicago",
       description:
         "In 1946, Friedman accepted an offer to teach economic theory at the University of Chicago (a position opened by departure of his former professor Jacob Viner to Princeton University). Friedman would work for the University of Chicago for the next 30 years.[39] There he contributed to the establishment of an intellectual community that produced a number of Nobel Memorial Prize winners, known collectively as the Chicago school of economics.",
       visible: true,
@@ -100,11 +100,15 @@ function App() {
           </EditorSection>
         </Editor>
         <Preview personalInfo={personalInfo}>
-          <PreviewSection title="Education" data={educationInfo} />
-          <PreviewSection
-            title="Professional Experience"
-            data={experienceInfo}
-          />
+          {educationInfo.some((entry) => entry.visible) && (
+            <PreviewSection title="Education" data={educationInfo} />
+          )}
+          {experienceInfo.some((entry) => entry.visible) && (
+            <PreviewSection
+              title="Professional Experience"
+              data={experienceInfo}
+            />
+          )}
         </Preview>
       </div>
     </>

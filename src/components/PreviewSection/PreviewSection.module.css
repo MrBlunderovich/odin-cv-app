@@ -14,6 +14,7 @@
     "period organization"
     "location position"
     "empty description";
+  color: black;
 
   & p {
     font-weight: 300;

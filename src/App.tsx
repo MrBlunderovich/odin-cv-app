@@ -82,22 +82,18 @@ function App() {
             personalInfo={personalInfo}
             setPersonalInfo={setPersonalInfo}
           />
-          <EditorSection title="Education" icon="school">
-            {educationInfo.map((entry) => (
-              <Entry
-                key={entry.id}
-                data={entry}
-                setData={setEducationInfo}
-                title={entry.organization}
-              >
-                <div>expanded</div>
-              </Entry>
-              /*  <p>{entry.school}</p> */
-            ))}
-          </EditorSection>
-          <EditorSection title="Experience" icon="work_outline">
-            {0}
-          </EditorSection>
+          <EditorSection
+            title="Education"
+            icon="school"
+            data={educationInfo}
+            setData={setEducationInfo}
+          />
+          <EditorSection
+            title="Experience"
+            icon="work_outline"
+            data={experienceInfo}
+            setData={setExperienceInfo}
+          />
         </Editor>
         <Preview personalInfo={personalInfo}>
           {educationInfo.some((entry) => entry.visible) && (

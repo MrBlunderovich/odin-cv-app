@@ -5,15 +5,14 @@ import styles from "./Entry.module.css";
 type Props = {
   data: ExperienceEntry;
   setData: React.Dispatch<React.SetStateAction<ExperienceEntry[]>>;
-  title: string;
-  children: React.ReactNode;
+  //children: React.ReactNode;
 };
 
-export default function Entry({ data, setData, title, children }: Props) {
-  const isExpanded = data.expanded;
+export default function Entry({ data, setData /* children */ }: Props) {
+  //const isExpanded = data.expanded;
   const id = data.id;
 
-  function handleToggleVisibility(
+  function toggleVisibility(
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
     event.stopPropagation();
@@ -24,7 +23,7 @@ export default function Entry({ data, setData, title, children }: Props) {
     });
   }
 
-  function handleExpandEntry() {
+  function expandEntry() {
     setData((prev: any) => {
       return prev.map((entry: ExperienceEntry) =>
         entry.id === id
@@ -34,15 +33,15 @@ export default function Entry({ data, setData, title, children }: Props) {
     });
   }
 
-  if (isExpanded) {
+  /* if (isExpanded) {
     return <>{children}</>;
-  }
+  } */
   return (
-    <li onClick={handleExpandEntry} className={styles.entry}>
-      {title}{" "}
+    <li onClick={expandEntry} className={styles.entry}>
+      {data.organization}
       <button
         className="material-icons-outlined icon-button"
-        onClick={handleToggleVisibility}
+        onClick={toggleVisibility}
       >
         {data.visible ? "visibility" : "visibility_off"}
       </button>

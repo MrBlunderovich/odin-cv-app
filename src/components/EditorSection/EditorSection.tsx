@@ -1,16 +1,21 @@
 import { useState } from "react";
 import styles from "./EditorSection.module.css";
+import { ExperienceEntry } from "../../types/declarations";
+import Entry from "../Entry/Entry";
+import EditorForm from "../EditorForm/EditorForm";
 //import { PersonalInfo } from "../../types/declarations";
 
 type Props = {
   title: string;
   //setState: React.Dispatch<React.SetStateAction<PersonalInfo>>;
   //handleChange: (event: React.FormEvent<HTMLFormElement>) => void;
-  children: React.ReactNode;
+  //children: React.ReactNode;
   icon: "school" | "work_outline";
+  data: ExperienceEntry[];
+  setData: React.Dispatch<React.SetStateAction<ExperienceEntry[]>>;
 };
 
-export default function EditorSection({ title, children, icon }: Props) {
+export default function EditorSection({ title, icon, data, setData }: Props) {
   const [expanded, setExpanded] = useState(false);
   /* function handleChange(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -19,9 +24,23 @@ export default function EditorSection({ title, children, icon }: Props) {
     //const formFieldData = new FormData(form)
     //setState()
   } */
+  const expandedEntry = data.find((entry) => entry.expanded);
+
+  const contents = expandedEntry ? (
+    <EditorForm entry={expandedEntry} setData={setData} />
+  ) : (
+    <>
+      <ul className="editor-section__list">
+        {data.map((entry) => (
+          <Entry key={entry.id} data={entry} setData={setData} />
+        ))}
+      </ul>
+      <button className={`${styles["add-button"]} `}>+ {title}</button>
+    </>
+  );
 
   return (
-    <div className="editor-section">
+    <div className={`${styles["editor-section"]} editor-section`}>
       <h3 className={`${styles["section-title"]} editor-section__title`}>
         <span className="material-icons-outlined">{icon}</span>
         {title}{" "}
@@ -32,7 +51,7 @@ export default function EditorSection({ title, children, icon }: Props) {
           {expanded ? "expand_less" : "expand_more"}
         </button>
       </h3>
-      {expanded && <ul className="editor-section__list">{children}</ul>}
+      {expanded && contents}
     </div>
   );
 }

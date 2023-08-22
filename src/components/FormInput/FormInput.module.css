@@ -12,10 +12,9 @@
     font-weight: 300;
     margin-bottom: 0.7rem;
 
-    &:focus,
-    &:focus-visible {
+    /*  &:focus-visible {
       outline: 1px solid var(--navy);
       box-shadow: 0 0 10px 0 gray;
-    }
+    } */
   }
 }

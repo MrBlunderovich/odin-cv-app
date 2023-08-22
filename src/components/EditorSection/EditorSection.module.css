@@ -1,10 +1,8 @@
-/* .editor-section {
-  background-color: #fff;
-  border-radius: 7px;
-  box-shadow: 0 0 10px 0 gray;
-  padding: 1rem;
+.editor-section {
+  display: flex;
+  flex-direction: column;
 }
-
+/* 
 .editor-section__title {
   margin-bottom: 1rem;
 }
@@ -18,16 +16,16 @@
   display: flex;
   align-items: center;
   gap: 0.5em;
+}
 
-  /* & button {
-    margin-left: auto;
-    cursor: pointer;
-    border-radius: 3px;
-
-    &:focus-visible {
-      outline: 1px solid var(--navy);
-    }
-  } */
+.add-button {
+  background-color: transparent;
+  color: var(--navy);
+  align-self: center;
+  border-radius: 100vmax;
+  border: 1px solid var(--navy);
+  padding: 0.2rem 0.5rem;
+  margin-top: 1rem;
 }
 
 /* .expand-section {

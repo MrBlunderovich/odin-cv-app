@@ -1,12 +1,9 @@
 import { ReactNode } from "react";
 import styles from "./Preview.module.css";
-//import PreviewSection from "../PreviewSection/PreviewSection";
 import { PersonalInfo } from "../../types/declarations";
 
 type Props = {
   personalInfo: PersonalInfo;
-  /* educationInfo: EducationEntry[];
-  experienceInfo:ExperienceEntry[]; */
   children: ReactNode;
 };
 export default function Preview({ personalInfo, children }: Props) {
@@ -17,17 +14,27 @@ export default function Preview({ personalInfo, children }: Props) {
       <address className={styles.heading}>
         <h2 className={styles.name}>{fullName}</h2>
         <ul className={styles.contacts}>
-          <li>{email}</li>
-          <li>{phone}</li>
-          <li>{location}</li>
+          <li>
+            <i className="material-icons-outlined" aria-hidden>
+              email
+            </i>
+            {email}
+          </li>
+          <li>
+            <i className="material-icons-outlined" aria-hidden>
+              phone
+            </i>
+            {phone}
+          </li>
+          <li>
+            <i className="material-icons-outlined" aria-hidden>
+              place
+            </i>
+            {location}
+          </li>
         </ul>
       </address>
-      <div className={styles.container}>
-        {/* <PreviewSection />
-        <PreviewSection />
-        <PreviewSection /> */}
-        {children}
-      </div>
+      <div className={styles.container}>{children}</div>
     </main>
   );
 }

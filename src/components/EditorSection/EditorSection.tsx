@@ -3,6 +3,8 @@ import styles from "./EditorSection.module.css";
 import { ExperienceEntry } from "../../types/declarations";
 import Entry from "../Entry/Entry";
 import EditorForm from "../EditorForm/EditorForm";
+import { nanoid } from "nanoid";
+import Button from "../Button/Button";
 
 type Props = {
   title: string;
@@ -22,6 +24,24 @@ export default function EditorSection({
   const [expanded, setExpanded] = useState(false);
   const expandedEntry = data.find((entry) => entry.expanded);
 
+  function createNewEntry() {
+    setData((perv) => [...perv, newEntry()]);
+  }
+
+  function newEntry(): ExperienceEntry {
+    return {
+      id: nanoid(),
+      organization: "",
+      position: "",
+      start: "",
+      end: "",
+      location: "",
+      description: "",
+      visible: true,
+      expanded: true,
+    };
+  }
+
   const contents = expandedEntry ? (
     <EditorForm entry={expandedEntry} setData={setData} FieldSet={FieldSet} />
   ) : (
@@ -31,18 +51,27 @@ export default function EditorSection({
           <Entry key={entry.id} data={entry} setData={setData} />
         ))}
       </ul>
-      <button className={`${styles["add-button"]} `}>+ {title}</button>
+      <Button
+        className={`${styles["add-button"]} `}
+        onClick={createNewEntry}
+        type="button"
+      >
+        + {title}
+      </Button>
     </>
   );
 
   return (
     <div className={`${styles["editor-section"]} editor-section`}>
-      <h3 className={`${styles["section-title"]} editor-section__title`}>
+      <h3
+        className={`${styles["section-title"]} editor-section__title`}
+        onClick={() => setExpanded(!expanded)}
+      >
         <span className="material-icons-outlined">{icon}</span>
         {title}{" "}
         <button
           className={`${styles["expand-section"]} material-icons-outlined icon-button`}
-          onClick={() => setExpanded(!expanded)}
+          aria-label={expanded ? "collapse" : "expand"}
         >
           {expanded ? "expand_less" : "expand_more"}
         </button>

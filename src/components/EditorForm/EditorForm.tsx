@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styles from "./EditorForm.module.css";
 import { ExperienceEntry } from "../../types/declarations";
+import Button from "../Button/Button";
 
 type Props = {
   entry: ExperienceEntry;
@@ -31,6 +32,7 @@ export default function EditorForm({ entry, setData, FieldSet }: Props) {
     newEntry.start = form.start.value;
     newEntry.end = form.end.value;
     newEntry.location = form.location.value;
+    newEntry.description = form.description ? form.description.value : "";
     newEntry.expanded = false;
     setData((prev) => {
       return prev.map((entry) =>
@@ -45,14 +47,14 @@ export default function EditorForm({ entry, setData, FieldSet }: Props) {
       onSubmit={handleSubmit}
     >
       <FieldSet entry={entry} />
-      <div className={styles.group}>
-        <button type="button" onClick={deleteEntry}>
+      <div className={`${styles.group} ${styles.buttons}`}>
+        <Button type="button" onClick={deleteEntry}>
           Delete
-        </button>
-        <button type="button" onClick={collapseForm}>
+        </Button>
+        <Button type="button" onClick={collapseForm}>
           Cancel
-        </button>
-        <button type="submit">Save</button>
+        </Button>
+        <Button type="submit">Save</Button>
       </div>
     </form>
   );

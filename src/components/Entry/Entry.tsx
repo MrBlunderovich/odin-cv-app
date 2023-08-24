@@ -5,11 +5,9 @@ import styles from "./Entry.module.css";
 type Props = {
   data: ExperienceEntry;
   setData: React.Dispatch<React.SetStateAction<ExperienceEntry[]>>;
-  //children: React.ReactNode;
 };
 
-export default function Entry({ data, setData /* children */ }: Props) {
-  //const isExpanded = data.expanded;
+export default function Entry({ data, setData }: Props) {
   const id = data.id;
 
   function toggleVisibility(
@@ -33,20 +31,20 @@ export default function Entry({ data, setData /* children */ }: Props) {
     });
   }
 
-  /* if (isExpanded) {
-    return <>{children}</>;
-  } */
   return (
     <li onClick={expandEntry} className={styles.entry}>
       {data.organization}
       <button
         className="material-icons-outlined icon-button"
         onClick={toggleVisibility}
+        aria-label={
+          data.visible
+            ? "hide this entry from output"
+            : "show this entry in output"
+        }
       >
         {data.visible ? "visibility" : "visibility_off"}
       </button>
     </li>
   );
 }
-//<span class="material-icons-outlined">visibility</span>
-//<span class="material-icons-outlined">visibility_off</span>

@@ -22,6 +22,7 @@ export default function PreviewSection({ data, title }: Props) {
             <h4 className={styles.organization}>{entry.organization}</h4>
             <p className={styles.location}>{entry.location}</p>{" "}
             <p className={styles.position}>{entry.position}</p>
+            <p className={styles.description}>{entry.description}</p>
             {/* <p className={styles.description}>{entry.description}</p> */}
           </div>
         ) : null

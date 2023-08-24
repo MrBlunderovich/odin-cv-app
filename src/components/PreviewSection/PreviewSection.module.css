@@ -39,4 +39,7 @@
 
 .description {
   grid-area: description;
+  line-height: normal;
+  margin-top: 0.3rem;
+  overflow: hidden;
 }

@@ -5,7 +5,6 @@ import Preview from "./components/Preview/Preview";
 import { ExampleData } from "./types/declarations";
 import PersonalSection from "./components/PersonalSection/PersonalSection";
 import EditorSection from "./components/EditorSection/EditorSection";
-import { nanoid } from "nanoid";
 import PreviewSection from "./components/PreviewSection/PreviewSection";
 import EducationFieldSet from "./components/EditorForm/EducationFieldSet";
 import ExperienceFieldSet from "./components/EditorForm/ExperienceFieldSet";

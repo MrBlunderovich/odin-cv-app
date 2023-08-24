@@ -21,6 +21,7 @@ export default function EducationFieldSet({
         <FormInput title="Start">
           <input name="start" defaultValue={entry.start} />
         </FormInput>
+
         <FormInput title="End">
           <input name="end" defaultValue={entry.end} />
         </FormInput>

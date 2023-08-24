@@ -1,0 +1,17 @@
+.button {
+  background-color: transparent;
+  border-radius: 3px;
+  border: 1px solid var(--navy);
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+  color: var(--navy);
+
+  &[type="submit"] {
+    background-color: var(--navy);
+    color: #fff;
+  }
+
+  &:active {
+    scale: 0.95;
+  }
+}

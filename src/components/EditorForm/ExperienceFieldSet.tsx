@@ -29,6 +29,14 @@ export default function ExperienceFieldSet({
       <FormInput title="Location">
         <input name="location" defaultValue={entry.location} />
       </FormInput>
+
+      <FormInput title="Description">
+        <textarea
+          name="description"
+          defaultValue={entry.description}
+          rows={5}
+        ></textarea>
+      </FormInput>
     </>
   );
 }

@@ -1,8 +1,0 @@
-.header {
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid var(--dark-green);
-
-  & h1 {
-    color: var(--dark-green);
-  }
-}

@@ -1,13 +1,13 @@
-import {} from "react";
+import { FC } from "react";
 import styles from "./EditorForm.module.css";
 import { ExperienceEntry } from "../../types/declarations";
-import FormInput from "../FormInput/FormInput";
 
 type Props = {
   entry: ExperienceEntry;
   setData: React.Dispatch<React.SetStateAction<ExperienceEntry[]>>;
+  FieldSet: FC<{ entry: ExperienceEntry }>;
 };
-export default function EditorForm({ entry, setData }: Props) {
+export default function EditorForm({ entry, setData, FieldSet }: Props) {
   const currentId = entry.id;
 
   function collapseForm() {
@@ -44,26 +44,7 @@ export default function EditorForm({ entry, setData }: Props) {
       className={`${styles["editor-form"]} editor-section__form`}
       onSubmit={handleSubmit}
     >
-      <FormInput title="School">
-        <input name="organization" defaultValue={entry.organization} />
-      </FormInput>
-
-      <FormInput title="Degree">
-        <input name="position" defaultValue={entry.position} />
-      </FormInput>
-
-      <div className={`${styles["group"]} ${styles["period"]}`}>
-        <FormInput title="Start">
-          <input name="start" defaultValue={entry.start} />
-        </FormInput>
-        <FormInput title="End">
-          <input name="end" defaultValue={entry.end} />
-        </FormInput>
-      </div>
-
-      <FormInput title="Location">
-        <input name="location" defaultValue={entry.location} />
-      </FormInput>
+      <FieldSet entry={entry} />
       <div className={styles.group}>
         <button type="button" onClick={deleteEntry}>
           Delete

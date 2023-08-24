@@ -4,17 +4,6 @@ export type PersonalInfo = {
   phone: string;
   location: string;
 };
-/* 
-export type EducationEntry = {
-  id: string;
-  school: string;
-  degree: string;
-  start: string;
-  end: string;
-  location: string;
-  visible: boolean;
-  expanded: boolean;
-}; */
 
 export type ExperienceEntry = {
   id: string;

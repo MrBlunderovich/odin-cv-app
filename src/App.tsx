@@ -3,13 +3,12 @@ import "./App.css";
 import Editor from "./components/Editor/Editor";
 import Preview from "./components/Preview/Preview";
 import { ExampleData } from "./types/declarations";
-//import EditorSection from "./components/EditorSection/EditorSection";
-//import FormInput from "./components/FormInput/FormInput";
 import PersonalSection from "./components/PersonalSection/PersonalSection";
 import EditorSection from "./components/EditorSection/EditorSection";
-import Entry from "./components/Entry/Entry";
 import { nanoid } from "nanoid";
 import PreviewSection from "./components/PreviewSection/PreviewSection";
+import EducationFieldSet from "./components/EditorForm/EducationFieldSet";
+import ExperienceFieldSet from "./components/EditorForm/ExperienceFieldSet";
 
 const exampleData: ExampleData = {
   personal: {
@@ -87,12 +86,14 @@ function App() {
             icon="school"
             data={educationInfo}
             setData={setEducationInfo}
+            FieldSet={EducationFieldSet}
           />
           <EditorSection
             title="Experience"
             icon="work_outline"
             data={experienceInfo}
             setData={setExperienceInfo}
+            FieldSet={ExperienceFieldSet}
           />
         </Editor>
         <Preview personalInfo={personalInfo}>

@@ -1,33 +1,29 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import styles from "./EditorSection.module.css";
 import { ExperienceEntry } from "../../types/declarations";
 import Entry from "../Entry/Entry";
 import EditorForm from "../EditorForm/EditorForm";
-//import { PersonalInfo } from "../../types/declarations";
 
 type Props = {
   title: string;
-  //setState: React.Dispatch<React.SetStateAction<PersonalInfo>>;
-  //handleChange: (event: React.FormEvent<HTMLFormElement>) => void;
-  //children: React.ReactNode;
+  FieldSet: FC<{ entry: ExperienceEntry }>;
   icon: "school" | "work_outline";
   data: ExperienceEntry[];
   setData: React.Dispatch<React.SetStateAction<ExperienceEntry[]>>;
 };
 
-export default function EditorSection({ title, icon, data, setData }: Props) {
+export default function EditorSection({
+  title,
+  icon,
+  data,
+  setData,
+  FieldSet,
+}: Props) {
   const [expanded, setExpanded] = useState(false);
-  /* function handleChange(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    console.log(event);
-    const form = event.target;
-    //const formFieldData = new FormData(form)
-    //setState()
-  } */
   const expandedEntry = data.find((entry) => entry.expanded);
 
   const contents = expandedEntry ? (
-    <EditorForm entry={expandedEntry} setData={setData} />
+    <EditorForm entry={expandedEntry} setData={setData} FieldSet={FieldSet} />
   ) : (
     <>
       <ul className="editor-section__list">
@@ -55,16 +51,3 @@ export default function EditorSection({ title, icon, data, setData }: Props) {
     </div>
   );
 }
-
-{
-  /* <div className={styles["editor-section"]}>
-      <h3 className={styles["editor-section__title"]}>{title}</h3>
-      <form className={styles["editor-section__form"]}>{children}</form>
-    </div> */
-}
-
-//<span class="material-icons-outlined">school</span>
-//<span class="material-icons-outlined">work_outline</span>
-//<span class="material-icons-outlined">delete_forever</span>
-//<span class="material-icons-outlined">visibility</span>
-//<span class="material-icons-outlined">visibility_off</span>

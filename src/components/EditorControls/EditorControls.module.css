@@ -1,0 +1,10 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.delete {
+  color: #9b0000;
+  border-color: #9b0000;
+}

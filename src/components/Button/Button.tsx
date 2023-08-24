@@ -11,7 +11,7 @@ export default function Button({
   onClick,
   children,
   className,
-  type = "submit",
+  type = "button",
 }: Props) {
   return (
     <button

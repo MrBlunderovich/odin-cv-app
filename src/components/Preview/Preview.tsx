@@ -14,24 +14,30 @@ export default function Preview({ personalInfo, children }: Props) {
       <address className={styles.heading}>
         <h2 className={styles.name}>{fullName}</h2>
         <ul className={styles.contacts}>
-          <li>
-            <i className="material-icons-outlined" aria-hidden>
-              email
-            </i>
-            {email}
-          </li>
-          <li>
-            <i className="material-icons-outlined" aria-hidden>
-              phone
-            </i>
-            {phone}
-          </li>
-          <li>
-            <i className="material-icons-outlined" aria-hidden>
-              place
-            </i>
-            {location}
-          </li>
+          {email && (
+            <li>
+              <i className="material-icons-outlined" aria-hidden>
+                email
+              </i>
+              {email}
+            </li>
+          )}
+          {phone && (
+            <li>
+              <i className="material-icons-outlined" aria-hidden>
+                phone
+              </i>
+              {phone}
+            </li>
+          )}
+          {location && (
+            <li>
+              <i className="material-icons-outlined" aria-hidden>
+                place
+              </i>
+              {location}
+            </li>
+          )}
         </ul>
       </address>
       <div className={styles.container}>{children}</div>

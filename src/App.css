@@ -83,5 +83,10 @@ body {
 @media (max-width: 800px) {
   .app-container {
     flex-wrap: wrap-reverse;
+    justify-content: center;
+
+    & main {
+      max-width: none;
+    }
   }
 }

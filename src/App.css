@@ -88,5 +88,10 @@ body {
     & main {
       max-width: none;
     }
+
+    & aside {
+      width: auto;
+      flex-grow: 1;
+    }
   }
 }
